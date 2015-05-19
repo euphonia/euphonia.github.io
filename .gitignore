@@ -1,2 +1,11 @@
+# Auto-generated files made by text editors because they think they are helpful
+*.swp
+*~
+
+# Site build-related files that shouldn't be deployed
 _site/
-.sass-cache/
+bower_components/
+node_modules/
+assets/less/.*
+assets/js/.*
+assets/css/.*
