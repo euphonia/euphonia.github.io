@@ -1,0 +1,25 @@
+{
+  "name": "happylucky.be",
+  "version": "0.0.1",
+  "description": "Components for the website",
+  "authors": [
+    "H.G. Lucky"
+  ],
+  "license": "MIT",
+  "homepage": "happylucky.be",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "",
+    "isotope": "~2.1.0",
+    "components-font-awesome": "~4.2.0",
+    "pygments": "~2.0.1",
+    "timeline.js": "~2.35.2"
+  }
+}

@@ -1,0 +1,30 @@
+### GLOBAL SETTINGS ###
+
+title: be happy. be lucky.
+description: "Welcome! Peer through this kaleidoscope into my mad little world."
+url: "http://www.happylucky.be"
+face: ""
+image_dir: "/assets/img"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+excerpt_separator: <!--more--> #Set excerpt for posts later
+highlighter: pygments
+
+exclude: 
+ - "bower_components"
+ - "bower.json"
+ - "node_modules"
+ - "package.json"
+ - "Gemfile"
+ - "Gemfile.lock"
+ - "Gruntfile.js"
+ - "assets/less/"
+
+include:
+ - ".nojekyll"
+ - "CNAME"
+
+gems: 
+ - "jekyll-sitemap"
