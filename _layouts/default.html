@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>{{ page.title }}</title>
+		<title>{{ page.title }}</title>
 
-      <!-- Bootstrap core CSS -->
-      <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-      <link href="/assets/css/pygments.css" rel="stylesheet">
-      {{ page.extra_css }}
+		<!-- Bootstrap core CSS -->
+		<link href="/assets/css/default.min.css" rel="stylesheet">
+		<style>
+			body {
+				padding-top:30px;
+			}
+			.headroom {
+				position: fixed;
+				transition: all .2s ease-in-out;
+			}
+			.headroom--unpinned {top: -100px;}
+			.headroom--pinned {top: 0;}
+		</style>
 
-      <!-- Favicons -->
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-      <link rel="icon" href="/favicon.ico">
-   </head>
+		{{ page.extra_css }}
 
-   {% include navbar.html %}
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" href="/favicon.ico">
+	</head>
 
-   <body>
-      {{ content }}
-   </body>
+	{% include navbar.html %}
 
-  {% include footer.html %}
+	<body>
+		{{ content }}
+	</body>
 
-  <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/js/bootstrap.min.js"></script>
-  {{ page.extra_js }}
+	<!--  {% include footer.html %} -->
+
+	<script src="/assets/js/default.min.js"></script>
+	<script>
+		$(".navbar-fixed-top").headroom();
+	</script>
+	
+	{{ page.extra_js }}
 
 </html>
