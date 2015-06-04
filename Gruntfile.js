@@ -4,10 +4,11 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-watch');
    grunt.loadNpmTasks('grunt-contrib-copy');
    grunt.loadNpmTasks('grunt-contrib-less');
-   grunt.loadNpmTasks('grunt-contrib-uglify');
    grunt.loadNpmTasks('grunt-contrib-concat');
-   grunt.loadNpmTasks('grunt-contrib-connect');
+   grunt.loadNpmTasks('grunt-contrib-uglify');
+   grunt.loadNpmTasks('grunt-contrib-cssmin');
    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+   grunt.loadNpmTasks('grunt-contrib-connect');
    grunt.loadNpmTasks('grunt-build-control');
 
    grunt.initConfig({
@@ -44,6 +45,9 @@ module.exports = function(grunt) {
 			},
 			bootswatch: {
 				less: 'bower_components/bootswatch/flatly'
+			},
+			headroom: {
+				js: 'bower_components/headroom.js/dist'
 			}
       },
 
@@ -203,10 +207,60 @@ module.exports = function(grunt) {
 						src: ['bootswatch.less', 'variables.less'],
                   dest: '<%= paths.assets.less %>/.bootswatch/',
 						expand: true
+					},
+					{
+						cwd: '<%= paths.headroom.js %>/',
+						src: ['headroom.min.js', 'jQuery.headroom.min.js'],
+                  dest: '<%= paths.assets.js %>',
+						expand: true
 					}
             ]
          }
       },
+
+      /*
+       *  
+       */
+		concat: {
+			options: {
+				separator: ';\n'
+			},
+			js: {
+				src: ['<%= paths.assets.js %>/jquery.min.js', 
+				      '<%= paths.assets.js %>/bootstrap.min.js',
+				      '<%= paths.assets.js %>/headroom.min.js',
+				      '<%= paths.assets.js %>/jQuery.headroom.min.js'],
+				dest: '<%= paths.assets.js %>/default.js'
+			},
+			css: {
+				src: ['<%= paths.assets.css %>/bootstrap.min.css', 
+				      '<%= paths.assets.css %>/pygments.css',
+				      '<%= paths.assets.css %>/font-awesome.min.css'],
+				dest: '<%= paths.assets.css %>/default.css'
+			}
+		},
+
+      /*
+       *  
+       */
+		uglify: {
+			js: {
+				files: { 
+					'<%= paths.assets.js %>/default.min.js': ['<%= paths.assets.js %>/default.js']
+				}
+			}
+		},
+
+      /*
+       *  
+       */
+		cssmin: {
+			css: {
+				files: { 
+					'<%= paths.assets.css %>/default.min.css': ['<%= paths.assets.css %>/default.css']
+				}
+			}
+		},
 
       /*
        *  
@@ -271,7 +325,7 @@ module.exports = function(grunt) {
    });
 
    grunt.registerTask('default', ['shell:build', 'connect', 'watch']);
-   grunt.registerTask('init', ['shell:init','copy','less']);
-   grunt.registerTask('update', ['shell:update','copy','less']);
+   grunt.registerTask('init', ['shell:init','copy','less','concat','uglify','cssmin']);
+   grunt.registerTask('update', ['shell:update','copy','less','concat','uglify','cssmin']);
    grunt.registerTask('deploy', ['htmlmin', 'buildcontrol:master'])
 };
