@@ -21,6 +21,7 @@
     "components-font-awesome": "~4.2.0",
     "pygments": "~2.0.1",
     "timeline.js": "~2.35.2",
-    "bootswatch": ""
+    "bootswatch": "",
+    "headroom.js": "~0.7.0"
   }
 }
