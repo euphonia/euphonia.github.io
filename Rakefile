@@ -10,17 +10,16 @@ namespace :post do
 		@slug = @slug.downcase.strip.gsub(' ', '-')
 		FileUtils.touch("_drafts/#{@slug}.md")
 
-		open("_drafts/#{@slug}.md", 'a' ) do |file|
+		open("_drafts/#{@slug}.md", 'w' ) do |file|
 			file.puts "---"
 			file.puts "layout: post"
 			file.puts "title: #{@name}"
 			file.puts "category: blog"
 			file.puts "tag: blog"
-			file.puts "published: false"
 			file.puts "---"
 		end
 
-		system ("#{ENV['EDITOR']} #{file}")
+		system ("#{ENV['EDITOR']} _drafts/#{@slug}.md")
 	end
 
 	desc "Publish an existing draft."
@@ -34,8 +33,9 @@ namespace :post do
 		puts "Post which draft?"
 		@post_name = STDIN.gets.chomp
 		@post_date = Time.now.strftime("%F")
-		FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_name}")
-		FileUtils.mv("_posts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
+#		FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_name}")
+#		FileUtils.mv("_posts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
+		FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
 		puts "Done!"
 	end
 end
