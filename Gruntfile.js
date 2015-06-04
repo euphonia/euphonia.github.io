@@ -41,6 +41,9 @@ module.exports = function(grunt) {
 				css: 'bower_components/timeline.js/source/css',
 				js: 'bower_components/timeline.js/build/js',
 				less: 'bower_components/timeline.js/source/less'
+			},
+			bootswatch: {
+				less: 'bower_components/bootswatch/flatly'
 			}
       },
 
@@ -82,7 +85,7 @@ module.exports = function(grunt) {
             dir: '_site',
             commit: true,
             push: true,
-            message: 'Built %sourceName% from branch %sourceBranch%',
+            message: '(Re)built %sourceName% from branch %sourceBranch%',
          },
          master: {
             options: {
@@ -178,8 +181,9 @@ module.exports = function(grunt) {
                },
                {
                   cwd: '<%= paths.pygments %>/',
-                  src: 'monokai.css',
+                  src: '*.css',
                   dest: '<%= paths.assets.css %>/.pygments/',
+						filter: 'isFile',
                   expand: true
                },
                {
@@ -193,7 +197,13 @@ module.exports = function(grunt) {
                   src: '*.min.js',
                   dest: '<%= paths.assets.js %>',
                   expand: true
-               }
+               },
+					{
+						cwd: '<%= paths.bootswatch.less %>/',
+						src: ['bootswatch.less', 'variables.less'],
+                  dest: '<%= paths.assets.less %>/.bootswatch/',
+						expand: true
+					}
             ]
          }
       },

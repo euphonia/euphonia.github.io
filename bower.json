@@ -20,6 +20,7 @@
     "isotope": "~2.1.0",
     "components-font-awesome": "~4.2.0",
     "pygments": "~2.0.1",
-    "timeline.js": "~2.35.2"
+    "timeline.js": "~2.35.2",
+    "bootswatch": ""
   }
 }
