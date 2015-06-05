@@ -114,10 +114,6 @@ module.exports = function(grunt) {
                'bower install',
                'npm install',
                'bundle install',
-/*
-               'mkdir -p assets',
-               'mkdir -p assets/less',
-*/
             ].join(' && ')
          },
          update: {
@@ -292,7 +288,7 @@ module.exports = function(grunt) {
                '_posts/**',
                '_plugins/*',
                'blog/*',
-               'media/*',
+               '_media/*',
                'assets/**',
                '_config.yml',
                'index.html',
@@ -325,7 +321,8 @@ module.exports = function(grunt) {
    });
 
    grunt.registerTask('default', ['shell:build', 'connect', 'watch']);
-   grunt.registerTask('init', ['shell:init','copy','less','concat','uglify','cssmin']);
+   grunt.registerTask('start', ['shell:init','copy','less','concat','uglify','cssmin']);
+   grunt.registerTask('rebuild', ['copy','less','concat','uglify','cssmin']);
    grunt.registerTask('update', ['shell:update','copy','less','concat','uglify','cssmin']);
    grunt.registerTask('deploy', ['htmlmin', 'buildcontrol:master'])
 };
