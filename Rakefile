@@ -33,8 +33,6 @@ namespace :post do
 		puts "Post which draft?"
 		@post_name = STDIN.gets.chomp
 		@post_date = Time.now.strftime("%F")
-#		FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_name}")
-#		FileUtils.mv("_posts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
 		FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
 		puts "Done!"
 	end
