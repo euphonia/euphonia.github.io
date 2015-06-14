@@ -3,7 +3,7 @@
 title: be happy. be lucky.
 description: "Welcome! Peer through this kaleidoscope into my mad little world."
 url: "http://www.happylucky.be"
-face: "/assets/img/face.svg"
+face: "face.svg"
 image_dir: "/assets/img"
 
 # Build settings
