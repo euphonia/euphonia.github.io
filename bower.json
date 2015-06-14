@@ -22,6 +22,7 @@
     "pygments": "~2.0.1",
     "timeline.js": "~2.35.2",
     "bootswatch": "",
-    "headroom.js": "~0.7.0"
+    "headroom.js": "~0.7.0",
+    "scrollReveal.js": "~2.3.1"
   }
 }

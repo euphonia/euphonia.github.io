@@ -48,6 +48,9 @@ module.exports = function(grunt) {
 			},
 			headroom: {
 				js: 'bower_components/headroom.js/dist'
+			},
+			scrollReveal: {
+				js: 'bower_components/scrollReveal.js/dist'
 			}
       },
 
@@ -209,6 +212,12 @@ module.exports = function(grunt) {
 						src: ['headroom.min.js', 'jQuery.headroom.min.js'],
                   dest: '<%= paths.assets.js %>',
 						expand: true
+					},
+					{
+						cwd: '<%= paths.scrollReveal.js %>/',
+						src: 'scrollReveal.min.js',
+                  dest: '<%= paths.assets.js %>',
+						expand: true
 					}
             ]
          }
@@ -224,6 +233,7 @@ module.exports = function(grunt) {
 			js: {
 				src: ['<%= paths.assets.js %>/jquery.min.js', 
 				      '<%= paths.assets.js %>/bootstrap.min.js',
+				      '<%= paths.assets.js %>/scrollReveal.min.js',
 				      '<%= paths.assets.js %>/headroom.min.js',
 				      '<%= paths.assets.js %>/jQuery.headroom.min.js'],
 				dest: '<%= paths.assets.js %>/default.js'
