@@ -16,6 +16,7 @@ namespace :post do
 			file.puts "title: #{@name}"
 			file.puts "category: blog"
 			file.puts "tag: blog"
+			file.puts "img: default"
 			file.puts "---"
 		end
 
