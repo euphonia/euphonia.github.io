@@ -234,7 +234,6 @@ module.exports = function(grunt) {
 
       /*
 		 * <%= paths.assets.js %>/scrollReveal.min.js',
-		 * <%= paths.assets.js %>/jquery.jscroll.min.js',
        *  
        */
 		concat: {
@@ -244,6 +243,7 @@ module.exports = function(grunt) {
 			js: {
 				src: ['<%= paths.assets.js %>/jquery.min.js', 
 				      '<%= paths.assets.js %>/bootstrap.min.js',
+		 		      '<%= paths.assets.js %>/jquery.jscroll.min.js',
 				      '<%= paths.assets.js %>/headroom.min.js',
 				      '<%= paths.assets.js %>/jQuery.headroom.min.js'],
 				dest: '<%= paths.assets.js %>/default.js'
