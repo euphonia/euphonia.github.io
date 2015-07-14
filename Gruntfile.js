@@ -309,6 +309,7 @@ module.exports = function(grunt) {
                '_plugins/*',
                'blog/*',
                '_media/*',
+               'media/*',
                'assets/**',
                '_config.yml',
                'index.html',
