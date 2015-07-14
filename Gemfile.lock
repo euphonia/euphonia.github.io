@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     RedCloth (4.2.9)
-    activesupport (4.2.1)
+    activesupport (4.2.3)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -20,7 +20,7 @@ GEM
     colorator (0.1)
     execjs (2.5.2)
     fast-stemmer (1.0.2)
-    ffi (1.9.8)
+    ffi (1.9.10)
     fileutils (0.7)
       rmagick (>= 2.13.1)
     gemoji (2.1.0)
@@ -89,7 +89,7 @@ GEM
     json (1.8.3)
     kramdown (1.5.0)
     liquid (2.6.2)
-    listen (2.10.0)
+    listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -115,8 +115,8 @@ GEM
     redcarpet (3.3.1)
     rmagick (2.15.2)
     safe_yaml (1.0.4)
-    sass (3.4.14)
-    terminal-table (1.4.5)
+    sass (3.4.16)
+    terminal-table (1.5.2)
     thread_safe (0.3.5)
     timers (4.0.1)
       hitimes
