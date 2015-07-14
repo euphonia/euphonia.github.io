@@ -4,47 +4,21 @@ layout: default
 extra_js: "
 <script>
 $('.jscroll').jscroll({
+	loadingHtml: '<img src=\"loading.gif\" alt=\"Loading\" /> Loading...',
 	nextSelector: 'a.next',
 	contentSelector: '.jscroll'
 });
-
-/*	
-	var sw = new ScrollWatch({
-	})
-
-	var config = {
-		delay: 'onload',
-		vFactor: .5,
-		over: '0.5s'
-	};
-	window.sr = new scrollReveal( config );
-	$('.jscroll').jscroll({
-		nextSelector: 'a.next'
-	});
-
-	var ias = $.ias({
-		container:  '#container',
-		item:       '.item',
-		pagination: '.pagination',
-		next:       '.next a'
-	});
-	ias.extension(new IASSpinnerExtension());
-	ias.extension(new IASTriggerExtension({offset: 3}));
-	ias.extension(new IASNoneLeftExtension({
-		text: 'There are no more pages left to load.'
-	}));
-*/
 </script>
 "
 ---
 <div class="container">
 
-	<h2 data-sr="enter top and scale down 80% over .5s" class="page-header text-center">Blog</h2>
+	<h2 class="page-header text-center">Blog</h2>
 
 	<div class="jscroll">
 		{% for post in paginator.posts %}
-		<div class="media row" data-scroll-watch>
-			<div class="col-xs-2" data-sr="enter left, wait 0.1s, and scale up 20%">
+		<div class="media row">
+			<div class="col-xs-3 col-sm-2 col-lg-1">
 				{% if post.img == "default" %}
 				<a href="{{ post.url }}">
 					<img class="img-responsive" src="{{ site.image_dir }}/{{ site.face }}"></img>
@@ -55,10 +29,10 @@ $('.jscroll').jscroll({
 				</a>
 				{% endif %}
 			</div>
-			<div class="col-xs-10">
-				<h4 class="media-heading" data-sr="enter right and scale up 40%"><a href="{{ post.url }}">{{ post.title }}</a></h4>
-				<p data-sr="enter right, wait 0.2s, and scale up 40%">&nbsp;&nbsp;{{ post.date | date_to_string }}</p>
-				<p data-sr="enter bottom and scale up 20%">{{ post.excerpt | strip_html | truncate:500  }}</p>
+			<div class="col-xs-9 col-sm-10 col-lg-11">
+				<h4 class="media-heading"><a href="{{ post.url }}">{{ post.title }}</a></h4>
+				<p>&nbsp;&nbsp;{{ post.date | date_to_string }}</p>
+				<p>{{ post.excerpt | strip_html | truncate:300  }}</p>
 			</div>
 		</div>
 		{% endfor %}
@@ -83,27 +57,3 @@ $('.jscroll').jscroll({
 	</div>
 
 </div>
-
-<!--
-<div class="container">
-
-	{% if paginator.total_pages > 1 %} <ul class="pagination">
-	
-		{% if paginator.previous_page %} <li><a href="{{ paginator.previous_page_path }}">Back</a></li>
-		{% else %} <li class="disabled"><a>Back</a></li>
-		{% endif %}
-
-		{% for page in (1..paginator.total_pages) %}
-			{% if page == paginator.page %} <li class="active"><a>{{ page | pnumber }}</a></li>
-			{% elsif page == 1 %} <li><a href="{{ '/blog/' }}">{{ page | pnumber }}</a></li>
-			{% else %} <li><a href="{{ site.paginate_path | replace: ':num', page }}">{{ page | pnumber }}</a></li>
-			{% endif %}
-		{% endfor %}
-
-		{% if paginator.next_page %} <li><a class="next" href="{{ paginator.next_page_path }}">Next</a></li>
-		{% else %} <li class="disabled"><a>Next</a></li>
-		{% endif %}
-	{% endif %} </ul>
-
-</div>
--->
