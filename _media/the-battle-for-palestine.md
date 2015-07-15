@@ -22,7 +22,7 @@ var timeline_config = {
 <script src='/assets/js/storyjs-embed.js'></script>
 "
 extra_css: "
-<link href='/assets/css/timeline.css' rel='stylesheet'>
+<link href='/assets/css/timeline.min.css' rel='stylesheet'>
 "
 ---
 
