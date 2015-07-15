@@ -42,10 +42,10 @@ extra_js: "
       {% for item in site.media %}
       <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item">
          <a href="{{ item.url }}">
-            {% if item.type == "paper" %}<div class="panel panel-info">
+            {% if item.type == "paper" %}<div class="panel panel-primary">
             {% elsif item.type == "video" %}<div class="panel panel-danger">
             {% elsif item.type == "anime" %}<div class="panel panel-warning">
-            {% elsif ite,.type == "news" %}<div class="panel panel-success">
+            {% elsif item.type == "news" %}<div class="panel panel-success">
             {% elsif item.type == "book" %}<div class="panel panel-info">
             {% else %}<div class="panel panel-default">
             {% endif %}
