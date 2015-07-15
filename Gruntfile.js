@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 				less: 'bower_components/timeline.js/source/less'
 			},
 			bootswatch: {
-				less: 'bower_components/bootswatch/flatly'
+				less: 'bower_components/bootswatch/darkly'
 			},
 			headroom: {
 				js: 'bower_components/headroom.js/dist'
@@ -162,20 +162,14 @@ module.exports = function(grunt) {
                   expand: true
                },
                {
-                  cwd: '<%= paths.timeline.css %>/',
-                  src: '*',
-                  dest: '<%= paths.assets.css %>/',
-                  expand: true
-               },
-               {
                   cwd: '<%= paths.timeline.less %>/',
-                  src: ['VMM.Timeline.less', 'Theme/Dark.less'], 
+                  src: '**', 
                   dest: '<%= paths.assets.less %>/.timeline/',
                   expand: true
                },
                {
                   cwd: '<%= paths.timeline.js %>/',
-                  src: ['storyjs-embed.js', 'timeline-min.js', 'locale/'],
+                  src: ['timline-min.js', 'storyjs-embed.js'],
                   dest: '<%= paths.assets.js %>/',
                   expand: true
                },
@@ -323,7 +317,7 @@ module.exports = function(grunt) {
          },
          less: {
             files: [ '<%= paths.assets.less %>/*.less' ],
-            tasks: ['less', 'shell:build'],
+            tasks: ['rebuild', 'shell:build'],
             options: {
                livereload: true
             }
