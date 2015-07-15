@@ -8,14 +8,15 @@ extra_js: "
 <script src=\"/assets/js/isotope.pkgd.min.js\"></script>
 
 <script>
-/*   $( function () {
+   $( function () {
       var $container = $('#mediagrid').isotope({
          itemSelector: '.item',
          layoutMode: 'masonry',
          transitionDuration: '0.5s',
          filter: '*'
       });
-      $('#filters').on( 'click', 'li', function() {
+/*    
+		$('#filters').on( 'click', 'li', function() {
          var filterValue = $(this).attr('data-filter');
          $container.isotope({ filter: filterValue });
       });
@@ -26,15 +27,8 @@ extra_js: "
             $( this ).addClass('active');
          });
       });
-
-   });
-
-   $(document).ready(function() {
-      $('[data-toggle=offcanvas]').click(function() {
-         $('.row-offcanvas').toggleClass('active');
-      });
-   });
 */
+   });
 </script>
 "
 ---
@@ -43,9 +37,25 @@ extra_js: "
    <h2 class="page-header text-center">{{ page.title }}</h2>
 </div>
 
-<div class="container">
-	<ul>
-	{% for item in site.media %}<li><a href="{{ item.url }}">{{ item.title }}</a></li>
-	{% endfor %}
-	</ul>
+<div class="container-fluid">
+   <div class="col-xs-12"><div class="row" id="mediagrid">
+      {% for item in site.media %}
+      <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item">
+         <a href="{{ item.url }}">
+            {% if item.type == "paper" %}<div class="panel panel-info">
+            {% elsif item.type == "video" %}<div class="panel panel-danger">
+            {% elsif item.type == "anime" %}<div class="panel panel-warning">
+            {% elsif ite,.type == "news" %}<div class="panel panel-success">
+            {% elsif item.type == "book" %}<div class="panel panel-info">
+            {% else %}<div class="panel panel-default">
+            {% endif %}
+            <div class="panel-heading"><h4 class="panel-title">{{ item.title }}</h4></div>
+            <div class="panel-body">
+					{{ item.content | split:"<!--start-->" | last | split:"<!--end-->" | first | truncate:300 }}
+            </div>
+         </div></a>
+      </div>
+      {% endfor %}
+   </div></div>
+
 </div>
