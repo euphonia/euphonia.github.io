@@ -21,6 +21,57 @@
 			.headroom--pinned {top: 0;}
 		</style>
 
+		<style>
+			.m-scene .scene_element {
+				animation-duration: .5s;
+				transition-timing-function: ease-in;
+				animation-fill-mode: both;
+			}
+
+			.m-scene .scene_element--fadein {
+				animation-name: fadeIn;
+			}
+
+			.m-scene .scene_element--fadeinup {
+				animation-name: fadeInUp;
+			}
+
+			.m-scene .scene_element--fadeinright {
+				animation-name: fadeInRight;
+			}
+
+			.m-scene.is-exiting .scene_element {
+				animation-direction: alternate-reverse;
+			}
+
+			@keyframes fadeIn {
+				0% { opacity: 0; }
+				100% { opacity: 1; }
+			}
+
+			@keyframes fadeInUp {
+				0% {
+					opacity: 0;
+					transform: translate3d(0, 100%, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}
+
+			@keyframes fadeInRight {
+				0% {
+					opacity: 0;
+					transform: translate3d(100%, 0, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}
+		</style>
+
 		{{ page.extra_css }}
 
 		<!-- Favicons -->
@@ -28,17 +79,46 @@
 		<link rel="icon" href="/favicon.ico">
 	</head>
 
-	{% include navbar.html %}
+	<body id="main" class="m-scene">
+		<div class="m-header scene_element scene_element--fadein">
+		{% include navbar.html %}
+		</div>
 
-	<body>
+		<div class="m-page scene_element scene_element--fadeinup">
 		{{ content }}
-	</body>
+		</div>
 
-	{% include footer.html %}
+		{% include footer.html %}
+	</body>
 
 	<script src="/assets/js/default.min.js"></script>
 	<script>
-		$(".navbar-fixed-top").headroom();
+	$(".navbar-fixed-top").headroom();
+	</script>
+	<script>
+	$(function() {
+		'use strict';
+		var options = {
+			prefetch: true,
+			cacheLength: 2,
+			onStart: {
+				duration: 250,
+				render: function ($container) {
+					$container.addClass('is-exiting');
+					smoothState.restartCSSAnimations();
+				}
+			},
+			onReady: {
+				duration: 0,
+				render: function ($container, $newContent) {
+					$container.removeClass('is-exiting');
+					$container.html($newContent);
+				}
+			}
+		},
+
+		smoothState = $('#main').smoothState(options).data('smoothState');
+	});
 	</script>
 	
 	{{ page.extra_js }}

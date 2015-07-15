@@ -23,6 +23,7 @@
     "timeline.js": "~2.35.2",
     "bootswatch": "",
     "headroom.js": "~0.7.0",
-    "jscroll": "~2.3.4"
+    "jscroll": "~2.3.4",
+    "smoothstate": "~0.7.2"
   }
 }

@@ -31,6 +31,7 @@ module.exports = function(grunt) {
             less: 'bower_components/bootstrap/less'
          },
          jquery: 'bower_components/jquery/dist',
+         smoothstate: 'bower_components/smoothstate',
          isotope: 'bower_components/isotope/dist',
          pygments: 'bower_components/pygments/css',
          font_awesome: {
@@ -193,6 +194,12 @@ module.exports = function(grunt) {
                   expand: true
                },
                {
+                  cwd: '<%= paths.smoothstate %>/',
+                  src: 'jquery.smoothState.min.js',
+                  dest: '<%= paths.assets.js %>/',
+                  expand: true
+               },
+               {
                   cwd: '<%= paths.isotope %>/',
                   src: '*.min.js',
                   dest: '<%= paths.assets.js %>',
@@ -238,6 +245,7 @@ module.exports = function(grunt) {
 				src: ['<%= paths.assets.js %>/jquery.min.js', 
 				      '<%= paths.assets.js %>/bootstrap.min.js',
 		 		      '<%= paths.assets.js %>/jquery.jscroll.min.js',
+		 		      '<%= paths.assets.js %>/jquery.smoothState.min.js',
 				      '<%= paths.assets.js %>/headroom.min.js',
 				      '<%= paths.assets.js %>/jQuery.headroom.min.js'],
 				dest: '<%= paths.assets.js %>/default.js'
