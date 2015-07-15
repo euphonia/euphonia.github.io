@@ -11,4 +11,3 @@ assets/js/.*
 assets/css/.*
 
 # Minified files
-*.min.*
