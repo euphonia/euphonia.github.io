@@ -9,3 +9,6 @@ node_modules/
 assets/less/.*
 assets/js/.*
 assets/css/.*
+
+# Minified files
+*.min.*
