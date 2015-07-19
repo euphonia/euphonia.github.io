@@ -50,7 +50,7 @@ extra_js: "
             {% else %}<div class="panel panel-default">
             {% endif %}
             <div class="panel-heading"><h4 class="panel-title">{{ item.title }}</h4></div>
-            <div class="panel-body">
+            <div class="panel-body" style="color:#ddd;">
 					{{ item.content | split:"<!--start-->" | last | split:"<!--end-->" | first | truncate:300 }}
             </div>
          </div></a>
