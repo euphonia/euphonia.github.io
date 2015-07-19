@@ -10,4 +10,17 @@ assets/less/.*
 assets/js/.*
 assets/css/.*
 
-# Minified files
+# Intermediate files
+assets/js/default.js
+assets/css/default.css
+
+# Files lumped into defaults
+assets/js/bootstrap.min.js
+assets/js/headroom.min.js
+assets/js/jQuery.headroom.min.js
+assets/js/jquery.jscroll.min.js
+assets/js/jquery.min.js
+assets/js/jquery.smoothState.min.js
+assets/css/bootstrap.min.css
+assets/pygments.css
+assets/font-awesome.min.css
