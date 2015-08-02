@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Emergence of Individuality in Genetically Identical Mice</title><link href="/assets/css/default.min.css" rel="stylesheet"><style>body {
+				padding-top:50px;
+			}
+			.headroom {
+				position: fixed;
+				transition: all .2s ease-in-out;
+			}
+			.headroom--unpinned {top: -100px;}
+			.headroom--pinned {top: 0;}</style><style>.m-scene .scene_element {
+				animation-duration: .25s;
+				transition-timing-function: ease-in;
+				animation-fill-mode: both;
+			}
+
+			.m-scene .scene_element--fadein {
+				animation-name: fadeIn;
+			}
+
+			.m-scene .scene_element--fadeinup {
+				animation-name: fadeInUp;
+			}
+
+			.m-scene .scene_element--fadeinright {
+				animation-name: fadeInRight;
+			}
+
+			.m-scene.is-exiting .scene_element {
+				animation-direction: alternate-reverse;
+			}
+
+			@keyframes fadeIn {
+				0% { opacity: 0; }
+				100% { opacity: 1; }
+			}
+
+			@keyframes fadeInUp {
+				0% {
+					opacity: 0;
+					transform: translate3d(0, 100%, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}
+
+			@keyframes fadeInRight {
+				0% {
+					opacity: 0;
+					transform: translate3d(100%, 0, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}</style><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" href="/favicon.ico"></head><body id="main" class="m-scene"><div class="navbar navbar-default navbar-fixed-top" role="navigation"><div class="container m-header"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" rel="home" href="/">be happy. be lucky.</a></div><div class="row"><div id="navbar" class="navbar-collapse collapse navbar-right"><ul class="nav navbar-nav"><li class="active"><a href="/media">Media</a></li><li><a href="/blog">Blog</a></li></ul></div></div></div></div><div class="container m-page scene_element scene_element--fadeinup"><h3 class="page-header">Emergence of Individuality in Genetically Identical Mice</h3><p><a href="http://dx.doi.org/10.1126/science.1235294">Freund, J. et al. Emergence of Individuality in Genetically Identical Mice. Science 340, 756–759 (2013).</a></p><p>Brain plasticity as a neurobiological reflection of individuality is difficult to capture in animal models. Inspired by behavioral-genetic investigations of human monozygotic twins reared together, we obtained dense longitudinal activity data on 40 inbred mice living in one large enriched environment. The exploratory activity of the mice diverged over time, resulting in increasing individual differences with advancing age. Individual differences in cumulative roaming entropy, indicating the active coverage of territory, correlated positively with individual differences in adult hippocampal neurogenesis. Our results show that factors unfolding or emerging during development contribute to individual differences in structural brain plasticity and behavior. The paradigm introduced here serves as an animal model for identifying mechanisms of plasticity underlying nonshared environmental contributions to individual differences in behavior.</p><h3 id="cool-parts">Cool parts:</h3><ol><li><strong>Roaming Entropy</strong> - to get a rough measure of interaction with and exploration of the environment, tag mice with RFID chips and track their locations. Over time you get a spatial probability distribution, and, using information theory, one can create an entropy measure. Low entropy means that there is a tight probability distribution, caused by mice not moving around much. Conversely, large measures signify the opposite.</li><li><strong>Roaming Entropy</strong> - again, this is really, really cool. It could be used in any behavioral analysis that has some spatial dimension. Of course, whether entropy means anything is a bit suspect, so it’s up to the researcher to know when information theory produces useful, well, information. Yeah…</li></ol><p><em>Side note:</em> We can be so mean to mice. One way to measure depression in them is to drop them in a bucket of water and check how long it takes for them to stop struggling. And when the chemicals used to kill mice interfere with the systems being studied, more creative methods are employed, like <a href="https://www.kentscientific.com/products/productView.asp?productID=6205&amp;Mouse_Rat=Guillotine&amp;Products=Rodent+and+Small+Animal+Guillotine">mouse guillotines</a> or just going old-school and snapping their necks with your fingers.</p></div><style>html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin-bottom: 60px;
+	margin-top: 10px;
+}
+.footer {
+	position: absolute;
+	top: 100%;
+	bottom: auto;
+	width: 100%;
+	height: -60px;
+	background-color: #375a7f;
+}</style><div class="footer"><div class="container"><div style="margin-bottom:40px"></div></div></div></body><script src="/assets/js/default.min.js"></script><script>$(".navbar-fixed-top").headroom();</script><script>;(function($) {
+			'use strict';
+			var $body = $('html, body'), content = $('#main').smoothState({
+				prefetch: true, 
+				pageCacheSize: 4, 
+				onStart: {
+					duration: 250, 
+					render: function (url, $container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+						$body.animate({
+							scrollTop: 0
+						});
+					}
+				},
+				onReady: {
+					duration: 200, 
+					render: function (url, $container, $content) {
+						$container.removeClass('is-exiting');
+						$container.html($content);
+						$body.css('cursor', 'auto');
+						$body.find('a').css('cursor', 'auto');
+					}
+				}
+			}).data('smoothState');
+		})(jQuery);
+	/*
+		$(function() {
+			'use strict';
+			var options = {
+				prefetch: true,
+				cacheLength: 2,
+				onStart: {
+					duration: 250,
+					render: function ($container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+					}
+				},
+				onReady: {
+					duration: 0,
+					render: function ($container, $newContent) {
+						$container.removeClass('is-exiting');
+						$container.html($newContent);
+					}
+				}
+			},
+
+			smoothState = $('#main').smoothState(options);
+		});
+	*/</script></html>

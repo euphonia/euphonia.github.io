@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Battle for Palestine</title><link href="/assets/css/default.min.css" rel="stylesheet"><style>body {
+				padding-top:50px;
+			}
+			.headroom {
+				position: fixed;
+				transition: all .2s ease-in-out;
+			}
+			.headroom--unpinned {top: -100px;}
+			.headroom--pinned {top: 0;}</style><style>.m-scene .scene_element {
+				animation-duration: .25s;
+				transition-timing-function: ease-in;
+				animation-fill-mode: both;
+			}
+
+			.m-scene .scene_element--fadein {
+				animation-name: fadeIn;
+			}
+
+			.m-scene .scene_element--fadeinup {
+				animation-name: fadeInUp;
+			}
+
+			.m-scene .scene_element--fadeinright {
+				animation-name: fadeInRight;
+			}
+
+			.m-scene.is-exiting .scene_element {
+				animation-direction: alternate-reverse;
+			}
+
+			@keyframes fadeIn {
+				0% { opacity: 0; }
+				100% { opacity: 1; }
+			}
+
+			@keyframes fadeInUp {
+				0% {
+					opacity: 0;
+					transform: translate3d(0, 100%, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}
+
+			@keyframes fadeInRight {
+				0% {
+					opacity: 0;
+					transform: translate3d(100%, 0, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}</style><link href="/assets/css/timeline.min.css" rel="stylesheet"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" href="/favicon.ico"></head><body id="main" class="m-scene"><div class="navbar navbar-default navbar-fixed-top" role="navigation"><div class="container m-header"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" rel="home" href="/">be happy. be lucky.</a></div><div class="row"><div id="navbar" class="navbar-collapse collapse navbar-right"><ul class="nav navbar-nav"><li class="active"><a href="/media">Media</a></li><li><a href="/blog">Blog</a></li></ul></div></div></div></div><div class="container m-page scene_element scene_element--fadeinup"><h3 class="page-header">The Battle for Palestine</h3><p>This is a article published in three parts, entitled <em>The Battle for Palestine</em>. It contains a history of Israel and Palestine starting from the decline of the Ottoman Empire in the late 1890s to today. It is written by William Polk, who worked on the Policy Planning Council for Presdents Kennedy and Johnson.</p><h4 id="part-onehttpsconsortiumnewscom20140811the-battle-for-palestine"><a href="https://consortiumnews.com/2014/08/11/the-battle-for-palestine/">Part One</a></h4><h4 id="part-twohttpsconsortiumnewscom20141023the-battle-for-palestine-part-two"><a href="https://consortiumnews.com/2014/10/23/the-battle-for-palestine-part-two/">Part Two</a></h4><h4 id="part-threehttpsconsortiumnewscom20141024the-battle-for-palestine-part-three"><a href="https://consortiumnews.com/2014/10/24/the-battle-for-palestine-part-three/">Part Three</a></h4><p>The broad thesis is that the current quagmire involving Israel, Palestine, and the Arab worls is an offshoot of long-standing European anti-Semitism that’s endured from the 19th century to today.</p><ul><li>Jewish populations underwent centuries of repression and racially and religiously motivated violence in Europe, with many migrating to America and to the Arab world. Still, the majority remained and formed tightly-knit communities.</li><li>Jews remained politically passive until Jewish communities started adopting notions of etho-nationalism that were burgeoning throughout Europe. Theodor Herzi called for the creation of a Jewish state, or “Judenstaat”, something unacceptable to other competing etho-nationalist movement.</li><li>Intoleratnce for a Jewish nation prompted calls for a Jewish state outside Europe. This was a controversial view, as some Jews feared talks of nationhood would prompt violence against them.</li><li>This took place in the background of imperialism. Nations carved out parts of the world as their own, and as such, felt that a solution to the problem of an increasingly restive Jewish population could be to have them emigrate to a colonial destination.</li><li>Imperialism also vacated notions on indigenous peoples having claims to rights or humanity. Arab lands were for all practical purposes empty, despite the existing Palestinian population.</li></ul><h3 class="page-header" style="text-align:center">Timeline</h3><div id="timeline-embed"></div></div><style>html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin-bottom: 60px;
+	margin-top: 10px;
+}
+.footer {
+	position: absolute;
+	top: 100%;
+	bottom: auto;
+	width: 100%;
+	height: -60px;
+	background-color: #375a7f;
+}</style><div class="footer"><div class="container"><div style="margin-bottom:40px"></div></div></div></body><script src="/assets/js/default.min.js"></script><script>$(".navbar-fixed-top").headroom();</script><script>;(function($) {
+			'use strict';
+			var $body = $('html, body'), content = $('#main').smoothState({
+				prefetch: true, 
+				pageCacheSize: 4, 
+				onStart: {
+					duration: 250, 
+					render: function (url, $container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+						$body.animate({
+							scrollTop: 0
+						});
+					}
+				},
+				onReady: {
+					duration: 200, 
+					render: function (url, $container, $content) {
+						$container.removeClass('is-exiting');
+						$container.html($content);
+						$body.css('cursor', 'auto');
+						$body.find('a').css('cursor', 'auto');
+					}
+				}
+			}).data('smoothState');
+		})(jQuery);
+	/*
+		$(function() {
+			'use strict';
+			var options = {
+				prefetch: true,
+				cacheLength: 2,
+				onStart: {
+					duration: 250,
+					render: function ($container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+					}
+				},
+				onReady: {
+					duration: 0,
+					render: function ($container, $newContent) {
+						$container.removeClass('is-exiting');
+						$container.html($newContent);
+					}
+				}
+			},
+
+			smoothState = $('#main').smoothState(options);
+		});
+	*/</script><script>var timeline_config = { width: '100%', height: '700', source: '/assets/timelines/battle-for-palestine.json', embed_id: 'timeline-embed', css: '/assets/css/timeline.min.css', js: '/assets/js/timeline-min.js' }</script><script src="/assets/js/timeline-min.js"></script><script src="/assets/js/storyjs-embed.js"></script></html>

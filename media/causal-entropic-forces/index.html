@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Causal Entropic Forces</title><link href="/assets/css/default.min.css" rel="stylesheet"><style>body {
+				padding-top:50px;
+			}
+			.headroom {
+				position: fixed;
+				transition: all .2s ease-in-out;
+			}
+			.headroom--unpinned {top: -100px;}
+			.headroom--pinned {top: 0;}</style><style>.m-scene .scene_element {
+				animation-duration: .25s;
+				transition-timing-function: ease-in;
+				animation-fill-mode: both;
+			}
+
+			.m-scene .scene_element--fadein {
+				animation-name: fadeIn;
+			}
+
+			.m-scene .scene_element--fadeinup {
+				animation-name: fadeInUp;
+			}
+
+			.m-scene .scene_element--fadeinright {
+				animation-name: fadeInRight;
+			}
+
+			.m-scene.is-exiting .scene_element {
+				animation-direction: alternate-reverse;
+			}
+
+			@keyframes fadeIn {
+				0% { opacity: 0; }
+				100% { opacity: 1; }
+			}
+
+			@keyframes fadeInUp {
+				0% {
+					opacity: 0;
+					transform: translate3d(0, 100%, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}
+
+			@keyframes fadeInRight {
+				0% {
+					opacity: 0;
+					transform: translate3d(100%, 0, 0);
+				}
+				100% {
+					opacity: 1;
+					transform: none;
+				}
+			}</style><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" href="/favicon.ico"></head><body id="main" class="m-scene"><div class="navbar navbar-default navbar-fixed-top" role="navigation"><div class="container m-header"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" rel="home" href="/">be happy. be lucky.</a></div><div class="row"><div id="navbar" class="navbar-collapse collapse navbar-right"><ul class="nav navbar-nav"><li class="active"><a href="/media">Media</a></li><li><a href="/blog">Blog</a></li></ul></div></div></div></div><div class="container m-page scene_element scene_element--fadeinup"><h3 class="page-header">Causal Entropic Forces</h3><p><a href="http://dx.doi.org/10.1103/PhysRevLett.110.168702">Wissner-Gross, A. &amp; Freer, C. Causal Entropic Forces. Physical Review Letters 110, (2013).</a></p><p>Recent advances in fields ranging from cosmology to computer science have hinted at a possible deep connection between intelligence and entropy maximization, but no formal physical relationship between them has yet been established. Here, we explicitly propose a first step toward such a relationship in the form of a causal generalization of entropic forces that we find can cause two defining behaviors of the human “cognitive niche”—tool use and social cooperation—to spontaneously emerge in simple physical systems. Our results suggest a potentially general thermodynamic model of adaptive behavior as a nonequilibrium process in open systems.</p></div><style>html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin-bottom: 60px;
+	margin-top: 10px;
+}
+.footer {
+	position: absolute;
+	top: 100%;
+	bottom: auto;
+	width: 100%;
+	height: -60px;
+	background-color: #375a7f;
+}</style><div class="footer"><div class="container"><div style="margin-bottom:40px"></div></div></div></body><script src="/assets/js/default.min.js"></script><script>$(".navbar-fixed-top").headroom();</script><script>;(function($) {
+			'use strict';
+			var $body = $('html, body'), content = $('#main').smoothState({
+				prefetch: true, 
+				pageCacheSize: 4, 
+				onStart: {
+					duration: 250, 
+					render: function (url, $container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+						$body.animate({
+							scrollTop: 0
+						});
+					}
+				},
+				onReady: {
+					duration: 200, 
+					render: function (url, $container, $content) {
+						$container.removeClass('is-exiting');
+						$container.html($content);
+						$body.css('cursor', 'auto');
+						$body.find('a').css('cursor', 'auto');
+					}
+				}
+			}).data('smoothState');
+		})(jQuery);
+	/*
+		$(function() {
+			'use strict';
+			var options = {
+				prefetch: true,
+				cacheLength: 2,
+				onStart: {
+					duration: 250,
+					render: function ($container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+					}
+				},
+				onReady: {
+					duration: 0,
+					render: function ($container, $newContent) {
+						$container.removeClass('is-exiting');
+						$container.html($newContent);
+					}
+				}
+			},
+
+			smoothState = $('#main').smoothState(options);
+		});
+	*/</script></html>
