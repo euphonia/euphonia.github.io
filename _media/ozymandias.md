@@ -13,7 +13,7 @@ citation: "by Percy Bysshe Shelley."
 <div class="container"><div class="row">
    <div class="col-md-6 col-md-push-6">
       <!--start-->
-		<img class="img-responsive" src="{{ site.image_dir }}/ozymandias.jpg" alt="...that colossal wreck...">
+		<img class="img-responsive" src="{{ site.image_dir }}/ozymandias.jpg" alt="...that colossal wreck..." style="max-width:100%">
       <!--end--> 
       <br>
    </div>

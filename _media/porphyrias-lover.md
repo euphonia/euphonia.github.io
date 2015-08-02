@@ -13,7 +13,7 @@ citation: "by Robert Browning."
 <div class="container"><div class="row">
 	<div class="col-md-6 col-md-push-6">
 		<!--start-->
-		<img src="{{ site.image_dir}}/porphyrias_lover.png" class="img-responsive img-rounded">
+		<img src="{{ site.image_dir}}/porphyrias_lover.png" class="img-responsive img-rounded" style="max-width=100%;">
 		<!--end--> 
 		<a href="http://darkcutie88.deviantart.com/" class="caption">&nbsp; - Image by darkcutie88</a>
 		<br>
