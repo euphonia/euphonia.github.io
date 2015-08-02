@@ -23,7 +23,7 @@
 
 		<style>
 			.m-scene .scene_element {
-				animation-duration: .5s;
+				animation-duration: .25s;
 				transition-timing-function: ease-in;
 				animation-fill-mode: both;
 			}
@@ -80,9 +80,7 @@
 	</head>
 
 	<body id="main" class="m-scene">
-		<div class="m-header scene_element scene_element--fadein">
 		{% include navbar.html %}
-		</div>
 
 		<div class="m-page scene_element scene_element--fadeinup">
 		{{ content }}
@@ -93,32 +91,60 @@
 
 	<script src="/assets/js/default.min.js"></script>
 	<script>
-	$(".navbar-fixed-top").headroom();
+		$(".navbar-fixed-top").headroom();
 	</script>
 	<script>
-	$(function() {
-		'use strict';
-		var options = {
-			prefetch: true,
-			cacheLength: 2,
-			onStart: {
-				duration: 250,
-				render: function ($container) {
-					$container.addClass('is-exiting');
-					smoothState.restartCSSAnimations();
+		;(function($) {
+			'use strict';
+			var $body = $('html, body'), content = $('#main').smoothState({
+				prefetch: true, 
+				pageCacheSize: 4, 
+				onStart: {
+					duration: 250, 
+					render: function (url, $container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+						$body.animate({
+							scrollTop: 0
+						});
+					}
+				},
+				onReady: {
+					duration: 200, 
+					render: function (url, $container, $content) {
+						$container.removeClass('is-exiting');
+						$container.html($content);
+						$body.css('cursor', 'auto');
+						$body.find('a').css('cursor', 'auto');
+					}
+				}
+			}).data('smoothState');
+		})(jQuery);
+	/*
+		$(function() {
+			'use strict';
+			var options = {
+				prefetch: true,
+				cacheLength: 2,
+				onStart: {
+					duration: 250,
+					render: function ($container) {
+						$container.addClass('is-exiting');
+						smoothState.restartCSSAnimations();
+					}
+				},
+				onReady: {
+					duration: 0,
+					render: function ($container, $newContent) {
+						$container.removeClass('is-exiting');
+						$container.html($newContent);
+					}
 				}
 			},
-			onReady: {
-				duration: 0,
-				render: function ($container, $newContent) {
-					$container.removeClass('is-exiting');
-					$container.html($newContent);
-				}
-			}
-		},
 
-		smoothState = $('#main').smoothState(options).data('smoothState');
-	});
+			smoothState = $('#main').smoothState(options);
+		});
+	*/
 	</script>
 	
 	{{ page.extra_js }}
