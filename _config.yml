@@ -37,3 +37,6 @@ include:
 
 gems: 
  - "jekyll-sitemap"
+ - "jekyll-paginate"
+ - "jekyll-seo-tag"
+ - "jekyll-feed"
