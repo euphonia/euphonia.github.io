@@ -6,7 +6,9 @@
 _site/
 bower_components/
 node_modules/
+.bundle/
 assets/less/.*
+assets/scss/.*
 assets/js/.*
 assets/css/.*
 
